@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS Buku (
 
   - NOT NULL: Memastikan kolom wajib diisi dan tidak boleh kosong (misal: setiap buku harus punya judul).
 
-    - NULLABLE: Kolom tanpa NOT NULL berarti boleh kosong (misal: tahun_terbit jika informasinya belum tersedia).
+  - NULLABLE: Kolom tanpa NOT NULL berarti boleh kosong (misal: tahun_terbit jika informasinya belum tersedia).
    
   #### Cara Verifikasi:
 ```
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS Peminjaman (
 
 #### Penjelasan Efek & Fungsi Relasi (FOREIGN KEY):
 
-    FOREIGN KEY (kolom_ini) REFERENCES TabelLain(kolom_tabel_lain): Berfungsi untuk membuat relasi antar tabel. Pada kasus ini, ini memastikan bahwa setiap id_buku yang dicatat di tabel Peminjaman harus benar-benar ada di tabel Buku, dan id_anggota harus ada di tabel Anggota. Tujuannya adalah menjaga konsistensi data; Anda tidak bisa mencatat peminjaman untuk buku atau anggota yang tidak terdaftar.
+- FOREIGN KEY (kolom_ini) REFERENCES TabelLain(kolom_tabel_lain): Berfungsi untuk membuat relasi antar tabel. Pada kasus ini, ini memastikan bahwa setiap id_buku yang dicatat di tabel Peminjaman harus benar-benar ada di tabel Buku, dan id_anggota harus ada di tabel Anggota. Tujuannya adalah menjaga konsistensi data; Anda tidak bisa mencatat peminjaman untuk buku atau anggota yang tidak terdaftar.
 
 #### Cara Verifikasi:
 ```
@@ -146,7 +146,7 @@ ADD COLUMN penerbit VARCHAR(255);
 ```
 #### Penjelasan Efek & Fungsi:
 
-    ALTER TABLE Buku ADD COLUMN penerbit VARCHAR(255);: Berfungsi untuk menambahkan kolom baru bernama penerbit ke tabel Buku yang sudah ada. Ini berguna jika Anda perlu mencatat informasi tambahan untuk setiap buku tanpa membuat ulang tabel.
+- ALTER TABLE Buku ADD COLUMN penerbit VARCHAR(255);: Berfungsi untuk menambahkan kolom baru bernama penerbit ke tabel Buku yang sudah ada. Ini berguna jika Anda perlu mencatat informasi tambahan untuk setiap buku tanpa membuat ulang tabel.
 
 #### Cara Verifikasi:
 ```
@@ -160,7 +160,7 @@ MODIFY COLUMN tahun_terbit SMALLINT;
 ```
 #### Penjelasan Efek & Fungsi:
 
-    ALTER TABLE Buku MODIFY COLUMN tahun_terbit SMALLINT;: Berfungsi untuk mengubah tipe data kolom tahun_terbit dari INT menjadi SMALLINT. Ini bisa dilakukan untuk mengoptimalkan penggunaan memori jika rentang tahun tidak melebihi batas SMALLINT.
+- ALTER TABLE Buku MODIFY COLUMN tahun_terbit SMALLINT;: Berfungsi untuk mengubah tipe data kolom tahun_terbit dari INT menjadi SMALLINT. Ini bisa dilakukan untuk mengoptimalkan penggunaan memori jika rentang tahun tidak melebihi batas SMALLINT.
 
 #### Cara Verifikasi:
 ```
@@ -173,9 +173,9 @@ ALTER TABLE Buku
 DROP COLUMN penerbit;
 ```
 #### Penjelasan Efek & Fungsi:
-```
-    ALTER TABLE Buku DROP COLUMN penerbit;: Berfungsi untuk menghapus kolom penerbit dari tabel Buku. Gunakan perintah ini dengan sangat hati-hati karena semua data yang ada di kolom tersebut akan hilang secara permanen.
-```
+
+- ALTER TABLE Buku DROP COLUMN penerbit;: Berfungsi untuk menghapus kolom penerbit dari tabel Buku. Gunakan perintah ini dengan sangat hati-hati karena semua data yang ada di kolom tersebut akan hilang secara permanen.
+
 #### Cara Verifikasi:
 ```
 DESC Buku;
@@ -196,7 +196,7 @@ INSERT INTO Buku (judul, penulis, tahun_terbit, stok) VALUES
 ```
 #### Penjelasan Efek & Fungsi:
 
-    INSERT INTO Buku (...) VALUES (...): Berfungsi untuk menambahkan baris data baru ke dalam tabel Buku. Pada kasus ini, Anda mengisi data awal koleksi buku perpustakaan Anda.
+- INSERT INTO Buku (...) VALUES (...): Berfungsi untuk menambahkan baris data baru ke dalam tabel Buku. Pada kasus ini, Anda mengisi data awal koleksi buku perpustakaan Anda.
 
 #### Cara Verifikasi:
 ```
@@ -355,7 +355,7 @@ SELECT judul FROM Buku WHERE judul LIKE '%Potter%';
 
 - %: Mewakili nol atau lebih karakter (wildcard). Pada kasus ini, '%Potter%' akan menemukan judul buku yang memiliki kata "Potter" di mana saja (depan, tengah, atau akhir).
 
-_: Mewakili satu karakter tunggal (wildcard). Contoh: 'B_ku' akan menemukan "Buku", "Baku".
+- _: Mewakili satu karakter tunggal (wildcard). Contoh: 'B_ku' akan menemukan "Buku", "Baku".
 
 ### 3.4. Memilih Data Unik: DISTINCT
 ```
